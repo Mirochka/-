@@ -1,0 +1,27 @@
+#include "stdafx.h"
+#include <iostream>
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+short result = 0;
+_asm {
+mov ax, 1799
+mov bx, 100
+mov dx, 0
+div bx
+
+cmp dx, 0
+jnz evenlabel
+jne end
+evenlable:
+add ax, 1
+jmp end
+end:
+mov result, ax
+}
+
+std::cout « result;
+auto c = new char[];
+scanf_s(c);
+return 0;
+}
